@@ -1,0 +1,129 @@
+---
+export const prerender = false;
+import { sql } from '../lib/db';
+
+const auth = Astro.request.headers.get('authorization') || '';
+const expected =
+  'Basic ' + Buffer.from('admin:' + (process.env.ADMIN_PASSWORD || '')).toString('base64');
+
+if (!process.env.ADMIN_PASSWORD || auth !== expected) {
+  return new Response('Auth required', {
+    status: 401,
+    headers: { 'WWW-Authenticate': 'Basic realm="Admin"' },
+  });
+}
+
+let rows: any[] = [];
+let dbError: string | null = null;
+try {
+  rows = (await sql`
+    SELECT id, email, role, company, source, created_at
+    FROM waitlist
+    ORDER BY created_at DESC
+    LIMIT 500
+  `) as any[];
+} catch (err: any) {
+  dbError = err?.message || 'Errore database';
+}
+---
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin — Waitlist The Freighter</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, sans-serif; padding: 2rem; max-width: 1100px; margin: auto; color: #1f2937; background: #fafaf7; }
+  h1 { font-weight: 700; margin: 0 0 .25rem; }
+  .meta { color: #6b7280; font-size: 14px; margin-bottom: 1.5rem; }
+  .actions { margin: 1rem 0 1.5rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+  button, a.btn { padding: 9px 16px; border-radius: 6px; border: 1px solid #d1d5db; cursor: pointer; background: white; color: #1f2937; text-decoration: none; font-size: 14px; font-family: inherit; }
+  button:hover, a.btn:hover { background: #f3f4f6; }
+  .danger { background: #ef4444; color: white; border-color: #ef4444; }
+  .danger:hover { background: #dc2626; }
+  table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; border-bottom: 1px solid #f3f4f6; text-align: left; font-size: 14px; }
+  th { background: #f9fafb; font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .empty { padding: 3rem; text-align: center; color: #6b7280; background: white; border: 1px dashed #d1d5db; border-radius: 6px; }
+  .err { padding: 1rem; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 6px; font-size: 14px; }
+  code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+</style>
+</head>
+<body>
+  <h1>Waitlist · {rows.length} {rows.length === 1 ? 'entry' : 'entries'}</h1>
+  <p class="meta">Ultimi 500 record. Esportabile in CSV o azzerabile.</p>
+
+  {dbError && (
+    <div class="err">
+      <b>Database non raggiungibile.</b> {dbError}
+      <br /><br />
+      Controlla che la tabella esista. SQL da eseguire una volta sola nel Vercel Postgres SQL editor:
+      <pre><code>{`CREATE TABLE IF NOT EXISTS waitlist (
+  id SERIAL PRIMARY KEY,
+  email TEXT NOT NULL,
+  role TEXT,
+  company TEXT,
+  source TEXT,
+  user_agent TEXT,
+  ip_hash TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS ix_waitlist_created ON waitlist(created_at DESC);
+CREATE UNIQUE INDEX IF NOT EXISTS ix_waitlist_email ON waitlist((LOWER(email)));`}</code></pre>
+    </div>
+  )}
+
+  {!dbError && (
+    <>
+      <div class="actions">
+        <a class="btn" href="/api/waitlist/export">📥 Esporta CSV</a>
+        <button class="danger" id="reset-btn">🗑️ Azzera tutto</button>
+      </div>
+
+      {rows.length === 0 ? (
+        <div class="empty">Nessuna iscrizione ancora. Le entries appariranno qui.</div>
+      ) : (
+        <table>
+          <thead>
+            <tr><th>#</th><th>Email</th><th>Ruolo</th><th>Azienda</th><th>Sorgente</th><th>Data</th></tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr>
+                <td>{r.id}</td>
+                <td>{r.email}</td>
+                <td>{r.role || '—'}</td>
+                <td>{r.company || '—'}</td>
+                <td>{r.source || '—'}</td>
+                <td>{new Date(r.created_at).toLocaleString('it-IT')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </>
+  )}
+
+  <script is:inline>
+    const btn = document.getElementById('reset-btn');
+    if (btn) {
+      btn.addEventListener('click', async () => {
+        if (!confirm('Azzero davvero la waitlist? Operazione IRREVERSIBILE.')) return;
+        if (!confirm('Sei proprio sicuro? Tutti i record saranno cancellati.')) return;
+        btn.disabled = true;
+        btn.textContent = 'Azzero…';
+        const r = await fetch('/api/waitlist/reset', { method: 'POST' });
+        if (r.ok) location.reload();
+        else {
+          btn.disabled = false;
+          btn.textContent = '🗑️ Azzera tutto';
+          alert('Errore durante il reset.');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

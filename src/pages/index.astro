@@ -1,0 +1,426 @@
+---
+const SITE_URL = 'https://freighter.online';
+const TITLE = 'The Freighter — La piattaforma intelligente per il freight brokerage italiano';
+const DESCRIPTION = "The Freighter unisce TMS, pricing intelligente e marketplace vettori in un'unica piattaforma pensata per il mercato italiano del trasporto su gomma.";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const CANONICAL = SITE_URL + '/';
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'The Freighter',
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
+  description: DESCRIPTION,
+  areaServed: 'IT',
+  slogan: 'Il sistema operativo del freight brokerage italiano.',
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: SITE_URL,
+  name: 'The Freighter',
+  inLanguage: 'it-IT',
+};
+---
+<!doctype html>
+<html lang="it" data-palette="indigo">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="canonical" href={CANONICAL} />
+
+<title>{TITLE}</title>
+<meta name="description" content={DESCRIPTION} />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="The Freighter" />
+<meta name="theme-color" content="#f7f4ed" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content="The Freighter" />
+<meta property="og:url" content={CANONICAL} />
+<meta property="og:title" content={TITLE} />
+<meta property="og:description" content={DESCRIPTION} />
+<meta property="og:image" content={OG_IMAGE} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={TITLE} />
+<meta name="twitter:description" content={DESCRIPTION} />
+<meta name="twitter:image" content={OG_IMAGE} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+
+<link rel="stylesheet" href="/styles/landing.css" />
+</head>
+<body>
+
+<!-- ====================================================== NAV ====================================================== -->
+<header class="nav" data-screen-label="00 Nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label="The Freighter — torna all'inizio">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name"><em>The</em> Freighter</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#problema">Problema</a>
+      <a href="#soluzione">Soluzione</a>
+      <a href="#segmenti">Per chi</a>
+      <a href="#come-funziona">Come funziona</a>
+    </nav>
+    <form class="nav-form" data-form="nav" data-source="nav" novalidate>
+      <label class="sr-only" for="nav-email">Email</label>
+      <input id="nav-email" type="email" name="email" placeholder="email@azienda.it" autocomplete="email" required />
+      <button type="submit">Sono interessato <span class="arrow">→</span></button>
+    </form>
+    <a href="#hero-form" class="nav-cta-mobile">Sono interessato <span class="arrow">→</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ====================================================== HERO ====================================================== -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="dot"></span> Coming soon</div>
+      <h1 class="display-1">
+        Il sistema operativo<br />
+        del <span class="accent">freight&nbsp;brokerage</span><br />
+        italiano.
+      </h1>
+      <p class="lead">
+        The Freighter unisce TMS, pricing intelligente e marketplace vettori
+        in un'unica piattaforma pensata per il mercato italiano del trasporto su gomma.
+      </p>
+
+      <form class="hero-form" id="hero-form" data-form="hero" data-source="hero" novalidate>
+        <label class="sr-only" for="hero-email">Email</label>
+        <input id="hero-email" type="email" name="email" placeholder="la-tua-email@azienda.it" autocomplete="email" required />
+        <button type="submit">Sono interessato <span aria-hidden="true">→</span></button>
+      </form>
+
+      <a href="#problema" class="hero-secondary">Scopri come funziona <span class="arrow-down">↓</span></a>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-tag tl"><span class="crosshair"></span> 41°N · 12°E</div>
+      <div class="hero-tag br">Lat./Long. ROMA</div>
+
+      <svg class="hero-map" viewBox="0 0 320 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mappa stilizzata d'Italia con principali rotte freight">
+        <circle class="ring" cx="186" cy="262" r="80" />
+        <circle class="ring" cx="186" cy="262" r="140" />
+
+        <path class="arc a1" d="M120,94 C 170,140 200,180 186,262" />
+        <path class="arc a2" d="M75,102 C 130,180 230,210 270,300" />
+        <path class="arc a3" d="M213,102 C 280,220 250,360 180,440" />
+        <path class="arc a4" d="M158,138 C 220,180 230,240 218,308" />
+        <path class="arc a5" d="M120,94 C 220,150 320,200 298,322" />
+
+        <g>
+          <circle class="city" cx="75"  cy="78"  r="2" />
+          <circle class="city hub" cx="75"  cy="102" r="3" />
+          <circle class="city hub" cx="120" cy="94"  r="3.4" />
+          <circle class="city" cx="135" cy="92"  r="2" />
+          <circle class="city" cx="155" cy="96"  r="2" />
+          <circle class="city" cx="213" cy="102" r="3" />
+          <circle class="city" cx="232" cy="104" r="2" />
+          <circle class="city" cx="110" cy="135" r="2.4" />
+          <circle class="city hub" cx="158" cy="138" r="3" />
+          <circle class="city" cx="168" cy="178" r="2.4" />
+          <circle class="city" cx="218" cy="200" r="2" />
+          <circle class="city" cx="218" cy="238" r="2" />
+          <circle class="city hub" cx="186" cy="262" r="4" />
+          <circle class="city hub" cx="218" cy="308" r="3" />
+          <circle class="city hub" cx="270" cy="300" r="3" />
+          <circle class="city" cx="298" cy="322" r="2.4" />
+          <circle class="city" cx="245" cy="362" r="2" />
+          <circle class="city" cx="244" cy="402" r="2" />
+          <circle class="city hub" cx="180" cy="440" r="3" />
+          <circle class="city" cx="232" cy="458" r="2" />
+          <circle class="city" cx="100" cy="395" r="2" />
+          <circle class="city" cx="108" cy="438" r="2.4" />
+        </g>
+
+        <text class="city-label" x="125" y="91">Milano</text>
+        <text class="city-label" x="192" y="261">Roma</text>
+        <text class="city-label" x="223" y="307">Napoli</text>
+        <text class="city-label" x="275" y="299">Bari</text>
+        <text class="city-label" x="148" y="448">Palermo</text>
+        <text class="city-label" x="80"  y="101" text-anchor="end">Torino</text>
+        <text class="city-label" x="218" y="111">Venezia</text>
+        <text class="city-label" x="163" y="148" text-anchor="end">Bologna</text>
+
+        <text class="route-label" x="160" y="200" transform="rotate(-22 160 200)">MI → RM · 574 km</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== PROBLEMA ====================================================== -->
+<section id="problema" data-screen-label="03 Problema">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">/02 — IL PROBLEMA</span>
+      <h2>Il brokerage italiano va avanti<br />a <em>telefono</em> e a <em>sentimento.</em></h2>
+      <p class="lead">Tre nodi che ogni operatore conosce — e che oggi nessuno strumento risolve insieme.</p>
+    </div>
+
+    <div class="cards-3">
+      <article class="card">
+        <span class="index">PROBLEMA 01</span>
+        <h3>Pricing <em>a sentimento.</em></h3>
+        <p class="body">"Quanto chiediamo per Milano→Palermo questo mese?"<br />Oggi la risposta dipende da chi è in ufficio.</p>
+        <p class="quote">"Lo abbiamo sempre fatto a 1.300, no?"<br />"Dipende. Da chi guida e da che giorno è."</p>
+      </article>
+      <article class="card">
+        <span class="index">PROBLEMA 02</span>
+        <h3>Vettori scelti <em>per abitudine.</em></h3>
+        <p class="body">Si chiama sempre lo stesso — anche quando non è il più affidabile per quella tratta, in quella stagione.</p>
+        <p class="quote">"Chiama Marco, lui ha sempre il furgone giusto."<br />"Marco è in ferie da due settimane."</p>
+      </article>
+      <article class="card">
+        <span class="index">PROBLEMA 03</span>
+        <h3>Margini che <em>si sgretolano.</em></h3>
+        <p class="body">Senza dati storici, ogni trattativa riparte da zero. La marginalità reale per rotta resta un'incognita.</p>
+        <p class="quote">"Questa l'abbiamo chiusa in attivo o no?"<br />"Domani te lo dico, devo guardare i fogli."</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SOLUZIONE ====================================================== -->
+<section id="soluzione" class="paper-2" data-screen-label="04 Soluzione">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">/03 — LA SOLUZIONE</span>
+      <h2>Tre pilastri. Una sola <em>piattaforma.</em></h2>
+      <p class="lead">Operazioni, decisioni, marketplace.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4.5" /><circle cx="12" cy="12" r="1.2" fill="currentColor" />
+          </svg>
+        </div>
+        <span class="pillar-tag">01 / Pricing</span>
+        <h3><em>Smart</em> Pricing</h3>
+        <p>Il prezzo giusto per ogni rotta, in tempo reale.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M4 12h7M13 12h7" /><circle cx="4" cy="12" r="2" /><circle cx="20" cy="12" r="2" /><path d="M11 9l2 3-2 3" />
+          </svg>
+        </div>
+        <span class="pillar-tag">02 / Marketplace</span>
+        <h3><em>Matching</em> intelligente</h3>
+        <p>Per ogni carico, il sistema suggerisce i vettori più adatti per rotta, affidabilità e specializzazione.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M4 20V8M10 20V4M16 20v-9M22 20H2" />
+          </svg>
+        </div>
+        <span class="pillar-tag">03 / Insight</span>
+        <h3>Decisioni con <em>dati</em></h3>
+        <p>Quello che ti serve sapere sui tuoi carichi, in una sola dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SEGMENTI ====================================================== -->
+<section id="segmenti" data-screen-label="05 Segmenti">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">/04 — DUE PROSPETTIVE</span>
+      <h2>Una <em>piattaforma,</em><br />due modi di lavorarci.</h2>
+      <p class="lead">Aziende che spediscono e chi i carichi li porta. Due esperienze pensate l'una per l'altra.</p>
+    </div>
+
+    <div class="segments segments-2">
+      <div class="segment">
+        <span class="seg-num">01 · CARICATORE</span>
+        <h3><span class="role">Per aziende clienti</span>Preventivo <em>in 30 secondi.</em></h3>
+        <ul>
+          <li>Preventivo in 30s, anche da mobile</li>
+          <li>Stato spedizione trasparente, DDT digitale</li>
+          <li>Storico rotte e risparmio vs media di settore</li>
+        </ul>
+      </div>
+
+      <div class="segment">
+        <span class="seg-num">02 · VETTORE</span>
+        <h3><span class="role">Per vettori e padroncini</span>Carichi di ritorno <em>senza chiamate.</em></h3>
+        <ul>
+          <li>Bacheca carichi filtrabile per zona, distanza, €/km</li>
+          <li>Cruscotto guadagni + calendario incassi previsti</li>
+          <li>Profilo flotta + certificazioni riusabili</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== COME FUNZIONA ====================================================== -->
+<section id="come-funziona" class="paper-2" data-screen-label="06 Come funziona">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">/05 — COME FUNZIONA</span>
+      <h2>Dalla richiesta alla <em>chiusura,</em><br />in quattro tempi.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step"><span class="step-num">STEP 01</span><h4>Richiesta</h4></div>
+      <div class="step"><span class="step-num">STEP 02</span><h4>Pricing</h4></div>
+      <div class="step"><span class="step-num">STEP 03</span><h4>Matching</h4></div>
+      <div class="step"><span class="step-num">STEP 04</span><h4>Consegna</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== ROADMAP (slim) ====================================================== -->
+<section data-screen-label="07 Roadmap" class="tight">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:0;">
+      <span class="section-num">/06 — IN COSTRUZIONE</span>
+      <h2>Il prodotto<br />è <em>vivo.</em></h2>
+      <p class="lead">Senza spoiler tecnici.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== HONESTY ====================================================== -->
+<section data-screen-label="08 Onesti">
+  <div class="container">
+    <div class="honesty">
+      <h2>Siamo <em>onesti</em><br />su cosa <em>non siamo.</em></h2>
+      <div class="honesty-list">
+        <div class="honesty-item">
+          <span class="tag">— Non vendiamo</span>
+          <p><span class="strike">Tracking GPS</span>Quello richiede hardware sui camion, e non è il nostro mestiere.</p>
+        </div>
+        <div class="honesty-item">
+          <span class="tag">— Non promettiamo</span>
+          <p><span class="strike">AI magica</span>Usiamo modelli statistici trasparenti su dati reali. Si chiamano numeri.</p>
+        </div>
+        <div class="honesty-item">
+          <span class="tag">— Non sostituiamo</span>
+          <p><span class="strike">Il tuo giudizio</span>Lo rendiamo più veloce e più informato. Le decisioni restano tue.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script is:inline>
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function showHeroSuccess(form, email) {
+    form.classList.add('success');
+    const safe = email.replace(/[<>]/g, '');
+    form.innerHTML = `
+      <div style="display:flex;align-items:center;gap:12px;padding:8px 14px;flex:1;font-size:14px;color:var(--accent-ink);">
+        <span style="width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--paper);display:grid;place-items:center;font-size:14px;">✓</span>
+        <span><b style="font-weight:500;color:var(--ink);">Ti abbiamo registrato.</b> Ti scriviamo a <i>${safe}</i> appena partiamo.</span>
+      </div>`;
+  }
+
+  function showNavSuccess(form) {
+    form.classList.add('success');
+    form.innerHTML = `<span>✓ Sei nella lista</span>`;
+  }
+
+  function appendError(form, msg) {
+    const old = form.querySelector('.error-msg');
+    if (old) old.remove();
+    const el = document.createElement('div');
+    el.className = 'error-msg';
+    el.textContent = '— ' + msg;
+    form.appendChild(el);
+  }
+
+  function bindForm(form, kind) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = form.querySelector('input[type="email"]');
+      const email = emailInput.value.trim();
+      const source = form.dataset.source || kind;
+
+      const oldErr = form.querySelector('.error-msg');
+      if (oldErr) oldErr.remove();
+
+      if (!EMAIL_RE.test(email)) {
+        appendError(form, "Inserisci un'email valida.");
+        emailInput.focus();
+        return;
+      }
+
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) {
+        btn.disabled = true;
+        btn.dataset.origLabel = btn.innerHTML;
+        btn.textContent = 'Invio in corso…';
+      }
+
+      try {
+        const r = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source }),
+        });
+        if (!r.ok) {
+          const j = await r.json().catch(() => ({}));
+          throw new Error(j.error || 'Errore di rete');
+        }
+        if (kind === 'hero') showHeroSuccess(form, email);
+        else showNavSuccess(form);
+      } catch (err) {
+        if (btn) {
+          btn.disabled = false;
+          if (btn.dataset.origLabel) btn.innerHTML = btn.dataset.origLabel;
+        }
+        appendError(form, err.message || 'Errore, riprova tra qualche minuto.');
+      }
+    });
+  }
+
+  document.querySelectorAll('[data-form]').forEach(f => bindForm(f, f.dataset.form));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.section-head, .cards-3, .pillars, .segments, .steps, .roadmap, .honesty, .faq, .final-cta-grid').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+    requestAnimationFrame(() => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+    });
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
+  }, 1200);
+</script>
+
+</body>
+</html>
