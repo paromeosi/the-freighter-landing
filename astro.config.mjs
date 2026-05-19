@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://freighter.online',
-  output: 'hybrid',
+  output: 'static',
   adapter: vercel(),
 });
