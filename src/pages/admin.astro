@@ -1,6 +1,8 @@
 ---
 export const prerender = false;
 import { sql } from '../lib/db';
+import { inject } from '@vercel/analytics';
+inject();
 
 const auth = Astro.request.headers.get('authorization') || '';
 const expected =
