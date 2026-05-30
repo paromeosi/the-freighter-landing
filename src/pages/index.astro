@@ -10,10 +10,17 @@ const orgJsonLd = {
   '@type': 'Organization',
   name: 'The Freighter',
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}/logo.png`,
+    width: 512,
+    height: 512,
+  },
+  image: OG_IMAGE,
   description: DESCRIPTION,
   areaServed: 'IT',
   slogan: 'Il sistema operativo del freight brokerage italiano.',
+  knowsLanguage: 'it-IT',
 };
 
 const websiteJsonLd = {
@@ -44,15 +51,19 @@ const websiteJsonLd = {
 <meta property="og:title" content={TITLE} />
 <meta property="og:description" content={DESCRIPTION} />
 <meta property="og:image" content={OG_IMAGE} />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="The Freighter — il sistema operativo del freight brokerage italiano" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={TITLE} />
 <meta name="twitter:description" content={DESCRIPTION} />
 <meta name="twitter:image" content={OG_IMAGE} />
+<meta name="twitter:image:alt" content="The Freighter — il sistema operativo del freight brokerage italiano" />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/logo.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -298,10 +309,10 @@ const websiteJsonLd = {
     </div>
 
     <div class="steps">
-      <div class="step"><span class="step-num">STEP 01</span><h4>Richiesta</h4></div>
-      <div class="step"><span class="step-num">STEP 02</span><h4>Pricing</h4></div>
-      <div class="step"><span class="step-num">STEP 03</span><h4>Matching</h4></div>
-      <div class="step"><span class="step-num">STEP 04</span><h4>Consegna</h4></div>
+      <div class="step"><span class="step-num">STEP 01</span><h3>Richiesta</h3></div>
+      <div class="step"><span class="step-num">STEP 02</span><h3>Pricing</h3></div>
+      <div class="step"><span class="step-num">STEP 03</span><h3>Matching</h3></div>
+      <div class="step"><span class="step-num">STEP 04</span><h3>Consegna</h3></div>
     </div>
   </div>
 </section>

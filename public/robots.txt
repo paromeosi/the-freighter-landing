@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://freighter.online/sitemap-index.xml
+Sitemap: https://freighter.online/sitemap.xml
