@@ -56,7 +56,7 @@ const websiteJsonLd = {
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,600;1,6..72,400&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
 <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
@@ -69,8 +69,19 @@ const websiteJsonLd = {
 <header class="nav" data-screen-label="00 Nav">
   <div class="container nav-inner">
     <a href="#top" class="brand" aria-label="The Freighter — torna all'inizio">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-name"><em>The</em> Freighter</span>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M31 24 V80"></path>
+            <path d="M31 24 H70"></path>
+            <path d="M31 50 H58"></path>
+          </g>
+          <circle cx="70" cy="24" r="6.5" fill="var(--accent)"></circle>
+          <circle cx="58" cy="50" r="5" fill="var(--paper)" stroke="currentColor" stroke-width="4"></circle>
+          <circle cx="31" cy="80" r="6.5" fill="currentColor"></circle>
+        </svg>
+      </span>
+      <span class="brand-name"><em>The</em> <b>Freighter</b></span>
     </a>
     <nav class="nav-links" aria-label="Navigazione principale">
       <a href="#problema">Problema</a>

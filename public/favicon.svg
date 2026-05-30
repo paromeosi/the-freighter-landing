@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#f7f4ed"/>
-  <rect x="2" y="2" width="28" height="28" fill="none" stroke="#1a1208" stroke-width="2"/>
-  <line x1="8" y1="10" x2="20" y2="10" stroke="#1a1208" stroke-width="2"/>
-  <line x1="8" y1="16" x2="18" y2="16" stroke="#1a1208" stroke-width="2"/>
-  <line x1="8" y1="22" x2="16" y2="22" stroke="#1a1208" stroke-width="2"/>
-  <polygon points="22,12 28,16 22,20" fill="#6d28d9"/>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Freighter favicon">
+  <rect x="0" y="0" width="32" height="32" rx="7" fill="#0c0c10"></rect>
+  <g stroke="#f7f4ed" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M11 9.5 V22.5"></path>
+    <path d="M11 9.5 H21"></path>
+    <path d="M11 16 H18"></path>
+  </g>
+  <circle cx="21" cy="9.5" r="2" fill="#e879f9"></circle>
+  <circle cx="11" cy="22.5" r="2" fill="#f7f4ed"></circle>
 </svg>
