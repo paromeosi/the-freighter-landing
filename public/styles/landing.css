@@ -304,10 +304,13 @@ section.flush { border-top: 0; }
   text-transform: uppercase;
   letter-spacing: -0.035em;
   line-height: 0.84;
-  font-size: clamp(56px, 13.2vw, 200px);
+  /* sized so the longest word (OPERATIVO/BROKERAGE) fits the container without
+     horizontal overflow across viewports */
+  font-size: clamp(32px, 8.5vw, 132px);
   margin: 0;
   position: relative;
   z-index: 2;
+  overflow-wrap: break-word;
 }
 .hero-title .ln { display: block; will-change: transform; }
 .hero-title .word { display: inline-block; }
@@ -744,9 +747,23 @@ section.flush { border-top: 0; }
   .map-plane { transition: none !important; }
 }
 
+/* ---------- anchor offset (sticky nav) ---------- */
+#beta, #problema, #network, [id] { scroll-margin-top: 88px; }
+
 /* ---------- narrow tuning ---------- */
+@media (max-width: 640px) {
+  /* shorter nav CTA label on small screens */
+  .nav-cta .cta-long { display: none; }
+  .nav-cta { font-size: 11px; padding: 9px 12px; gap: 6px; }
+  .brand-name { font-size: 18px; }
+}
 @media (max-width: 520px) {
   .field { flex-direction: column; }
   .field button { border-left: 0; border-top: var(--bd) solid var(--ink); padding: 14px; justify-content: center; }
-  .hero-title { font-size: clamp(44px, 15vw, 90px); }
+  .hero-title {
+    font-stretch: 100%;
+    font-variation-settings: 'wdth' 100;
+    font-size: clamp(30px, 9vw, 46px);
+    letter-spacing: -0.02em;
+  }
 }

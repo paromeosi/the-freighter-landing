@@ -184,6 +184,18 @@
     });
   });
 
+  /* ---------- 6. Waiting-list anchors → scroll to + focus the email field ---------- */
+  document.querySelectorAll('a[href="#beta"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const form = document.getElementById('beta');
+      const input = form && form.querySelector('input[type="email"]');
+      if (!input) return; // fall back to default hash jump
+      e.preventDefault();
+      input.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      setTimeout(() => { try { input.focus({ preventScroll: true }); } catch (_) { input.focus(); } }, reduce ? 0 : 480);
+    });
+  });
+
   function done(form, kind, email) {
     const safe = email.replace(/[<>]/g, '');
     if (kind === 'final') {
