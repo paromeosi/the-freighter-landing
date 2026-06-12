@@ -1,93 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Newsreader:ital,opsz,wght@0,6..72,600;1,6..72,400&amp;family=Geist:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
-      .wm-the { font-family: 'Newsreader', 'Times New Roman', serif; font-weight: 400; font-style: italic; fill: #59503f; }
-      .wm-name { font-family: 'Newsreader', 'Times New Roman', serif; font-weight: 600; font-style: normal; fill: #1f1810; }
-      .serif { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; fill: #1f1810; }
-      .serif-it { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; font-style: italic; fill: #5b21b6; }
-      .sans { font-family: 'Geist', system-ui, -apple-system, sans-serif; font-weight: 500; fill: #1f1810; }
-      .sans-2 { font-family: 'Geist', system-ui, -apple-system, sans-serif; font-weight: 400; fill: #59503f; }
-      .mono { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-weight: 500; fill: #837a68; letter-spacing: 0.08em; }
-      .mono-accent { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-weight: 500; fill: #5b21b6; letter-spacing: 0.08em; }
-    </style>
-  </defs>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&amp;family=Space+Mono:wght@700&amp;display=swap');
+    .h    { font-family: 'Archivo', sans-serif; font-weight: 900; fill: #0B0B0B; text-transform: uppercase; }
+    .hacc { font-family: 'Archivo', sans-serif; font-weight: 900; fill: #FF4A1C; }
+    .brand{ font-family: 'Archivo', sans-serif; font-weight: 900; fill: #0B0B0B; }
+    .f    { font-family: 'Archivo', sans-serif; font-weight: 900; fill: #F4F1E7; }
+    .mono { font-family: 'Space Mono', monospace; font-weight: 700; fill: #6A665A; letter-spacing: 2px; }
+    .monoacc { font-family: 'Space Mono', monospace; font-weight: 700; fill: #FF4A1C; letter-spacing: 2px; }
+  </style>
 
-  <!-- background: warm paper -->
-  <rect width="1200" height="630" fill="#f7f4ed"/>
+  <rect width="1200" height="630" fill="#F4F1E7"/>
+  <rect x="0" y="104" width="1200" height="5" fill="#0B0B0B"/>
+  <rect x="0" y="521" width="1200" height="5" fill="#0B0B0B"/>
 
-  <!-- subtle hairlines -->
-  <line x1="64" y1="120" x2="1136" y2="120" stroke="#d6cfbe" stroke-width="1"/>
-  <line x1="64" y1="510" x2="1136" y2="510" stroke="#d6cfbe" stroke-width="1"/>
-
-  <!-- brand mark top-left: monogram + serif wordmark -->
-  <g transform="translate(64, 60)">
-    <!-- F monogram (line-art, scaled from 100x100) -->
-    <g transform="scale(0.42)">
-      <g stroke="#1f1810" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
-        <path d="M31 24 V80"/>
-        <path d="M31 24 H70"/>
-        <path d="M31 50 H58"/>
-      </g>
-      <circle cx="70" cy="24" r="6.5" fill="#c026d3"/>
-      <circle cx="58" cy="50" r="5" fill="#f7f4ed" stroke="#1f1810" stroke-width="4"/>
-      <circle cx="31" cy="80" r="6.5" fill="#1f1810"/>
-    </g>
-    <!-- wordmark -->
-    <text x="50" y="30" class="wm-the" font-size="27">The</text>
-    <text x="101" y="30" class="wm-name" font-size="27">Freighter</text>
+  <!-- brand lockup top-left -->
+  <g transform="translate(64,38)">
+    <rect width="40" height="40" fill="#FF4A1C"/>
+    <rect x="1.6" y="1.6" width="36.8" height="36.8" fill="none" stroke="#0B0B0B" stroke-width="3"/>
+    <text class="f" x="20" y="30" font-size="27" text-anchor="middle">F</text>
+    <text class="brand" x="54" y="29" font-size="24" letter-spacing="-1">THE FREIGHTER</text>
   </g>
 
-  <!-- coming soon kicker -->
-  <g transform="translate(64, 156)">
-    <circle cx="6" cy="14" r="5" fill="#5b21b6"/>
-    <text x="22" y="19" class="mono" font-size="14">COMING SOON</text>
+  <!-- kicker -->
+  <g transform="translate(64,166)">
+    <rect x="0" y="6" width="26" height="3" fill="#0B0B0B"/>
+    <text class="monoacc" x="38" y="13" font-size="14">/01 · COMING SOON</text>
   </g>
 
-  <!-- H1 headline -->
-  <text x="64" y="246" class="serif" font-size="76" letter-spacing="-1.2">Il sistema operativo</text>
-  <text x="64" y="328" class="serif" font-size="76" letter-spacing="-1.2">del <tspan class="serif-it" font-style="italic">freight brokerage</tspan></text>
-  <text x="64" y="410" class="serif" font-size="76" letter-spacing="-1.2">italiano.</text>
+  <!-- giant headline (wdth 125, sized to fit 1200) -->
+  <text class="h" x="62" y="268" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;">IL SISTEMA OPERATIVO</text>
+  <text x="62" y="345" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;"><tspan class="h">DEL </tspan><tspan class="hacc">FREIGHT</tspan><tspan class="h"> BROKERAGE</tspan></text>
+  <text class="h" x="62" y="422" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;">ITALIANO.</text>
 
-  <!-- lead -->
-  <text x="64" y="464" class="sans-2" font-size="22">TMS, pricing intelligente e marketplace vettori</text>
-  <text x="64" y="494" class="sans-2" font-size="22">per il trasporto su gomma italiano.</text>
-
-  <!-- decorative italy map bottom-right -->
-  <g transform="translate(870, 145)" opacity="0.92">
-    <!-- guide rings -->
-    <circle cx="120" cy="170" r="60" fill="none" stroke="#5b21b6" stroke-width="0.8" opacity="0.35"/>
-    <circle cx="120" cy="170" r="105" fill="none" stroke="#5b21b6" stroke-width="0.8" opacity="0.2"/>
-
-    <!-- arcs -->
-    <path d="M58,40 C 100,80 130,120 120,170" stroke="#5b21b6" stroke-width="1.4" fill="none" opacity="0.85"/>
-    <path d="M22,46 C 60,110 150,130 175,200" stroke="#5b21b6" stroke-width="1.4" fill="none" opacity="0.6"/>
-    <path d="M135,46 C 180,140 160,230 110,290" stroke="#5b21b6" stroke-width="1.4" fill="none" opacity="0.6"/>
-    <path d="M82,68 C 130,108 145,150 142,200" stroke="#5b21b6" stroke-width="1.4" fill="none" opacity="0.7"/>
-
-    <!-- city dots -->
-    <circle cx="22"  cy="46"  r="2.2" fill="#1f1810"/>
-    <circle cx="58"  cy="40"  r="2.6" fill="#1f1810"/>
-    <circle cx="82"  cy="68"  r="2.2" fill="#1f1810"/>
-    <circle cx="100" cy="32"  r="1.6" fill="#1f1810"/>
-    <circle cx="135" cy="46"  r="2.2" fill="#1f1810"/>
-    <circle cx="120" cy="170" r="3.2" fill="#1f1810"/>
-    <circle cx="142" cy="200" r="2.2" fill="#1f1810"/>
-    <circle cx="175" cy="200" r="2.2" fill="#1f1810"/>
-    <circle cx="110" cy="290" r="2.2" fill="#1f1810"/>
-    <circle cx="148" cy="296" r="1.8" fill="#1f1810"/>
-    <circle cx="56"  cy="252" r="1.6" fill="#1f1810"/>
-
-    <!-- selective labels -->
-    <text x="64" y="38" class="mono" font-size="9">MILANO</text>
-    <text x="128" y="173" class="mono" font-size="9">ROMA</text>
-    <text x="74"  y="291" class="mono" font-size="9">PALERMO</text>
-  </g>
-
-  <!-- bottom footer line -->
-  <text x="64" y="554" class="mono-accent" font-size="13">FREIGHTER.ONLINE</text>
-  <text x="64" y="578" class="sans-2" font-size="14">Il sistema operativo del freight brokerage italiano · Beta privata in arrivo</text>
-
-  <!-- bottom-right tag -->
-  <text x="1136" y="554" class="mono" font-size="12" text-anchor="end">LAT./LONG. ROMA · 41°N · 12°E</text>
+  <text class="monoacc" x="64" y="572" font-size="15">FREIGHTER.ONLINE</text>
+  <text class="mono" x="64" y="596" font-size="13" style="letter-spacing:1px;">TMS · PRICING DATA-DRIVEN · MARKETPLACE VETTORI · BETA PRIVATA</text>
+  <text class="mono" x="1136" y="572" font-size="13" text-anchor="end">IT · TRASPORTO SU GOMMA</text>
 </svg>

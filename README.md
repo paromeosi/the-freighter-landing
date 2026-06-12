@@ -99,7 +99,26 @@ landing-site/
 - [ ] Verificare OG preview su [opengraph.xyz](https://www.opengraph.xyz/).
 - [ ] Submit sitemap su Google Search Console.
 
-## Palette colore
+## Stile + accento casuale
 
-Default: `data-palette="indigo"` (viola, deciso dall'utente).
-Le 5 palette del designer (sienna, cobalt, forest, indigo, ink) sono ancora switchabili modificando l'attributo `data-palette` sull'`<html>` in `src/pages/index.astro`.
+Stile **neo-brutalista** (da Claude Design): font **Archivo** (variabile, asse width)
++ **Space Mono**, bordi spessi, ombre dure offset, type grottesca gigante. CSS in
+`public/styles/landing.css`, interazioni (hero cinetico, mappa 3D "rete viva",
+reveal, counter) in `public/scripts/freighter.js`.
+
+**Accento casuale ad ogni refresh**: uno script inline in `<head>` di `index.astro`
+sceglie un accento tra i 4 del design ad ogni caricamento e lo setta come
+`--acc`/`--on-acc` su `<html>` (inline → vince sul default `:root`, niente flash):
+
+| Accento | Hex | Testo on-accent |
+|---|---|---|
+| Vermillion | `#FF4A1C` | chiaro `#F4F1E7` |
+| Hazard yellow | `#FFD400` | scuro `#0B0B0B` |
+| Acid lime | `#C6F000` | scuro `#0B0B0B` |
+| Electric cobalt | `#2D43FF` | chiaro `#F4F1E7` |
+
+Favicon, `logo.png` e l'immagine social (`og-image-v3.png`) sono **statici** →
+usano l'accento fisso **vermillion** (non possono cambiare per-view).
+
+Il form della hero salva le email via `POST /api/waitlist` (Neon + admin),
+invariato; include un campo honeypot `website` anti-spam.
