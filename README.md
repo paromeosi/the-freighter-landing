@@ -117,8 +117,9 @@ sceglie un accento tra i 4 del design ad ogni caricamento e lo setta come
 | Acid lime | `#C6F000` | scuro `#0B0B0B` |
 | Electric cobalt | `#2D43FF` | chiaro `#F4F1E7` |
 
-Favicon, `logo.png` e l'immagine social (`og-image-v3.png`) sono **statici** →
-usano l'accento fisso **vermillion** (non possono cambiare per-view).
+Favicon, `logo.png` e l'immagine social (`og-image-v4.png`, sorgente
+`og-image.svg` renderizzata con Chrome headless) sono **statici** → usano
+l'accento fisso **vermillion** (non possono cambiare per-view).
 
 Il form della hero salva le email via `POST /api/waitlist` (Neon + admin),
 invariato; include un campo honeypot `website` anti-spam.

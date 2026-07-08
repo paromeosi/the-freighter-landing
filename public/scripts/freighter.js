@@ -103,19 +103,7 @@
     }
   }
 
-  /* ---------- 3. Live counters ---------- */
-  document.querySelectorAll('[data-count]').forEach((el) => {
-    const base = parseInt(el.dataset.count, 10);
-    let cur = base;
-    el.textContent = cur.toLocaleString('it-IT');
-    setInterval(() => {
-      if (reduce) return;
-      cur += Math.floor(Math.random() * 3);
-      el.textContent = cur.toLocaleString('it-IT');
-    }, 2200 + Math.random() * 1500);
-  });
-
-  // rotating route readout
+  /* ---------- 3. Rotating route readout (example lanes) ---------- */
   const routeEl = document.querySelector('[data-route]');
   if (routeEl && !reduce) {
     const routes = ['MI → PA · 1.420 KM', 'TO → BA · 1.010 KM', 'BO → NA · 580 KM', 'MI → RM · 574 KM', 'VE → RC · 1.190 KM', 'GE → LE · 1.080 KM'];
@@ -159,10 +147,6 @@
       const email = (form.querySelector('input[type="email"]') || {}).value || '';
       if (!EMAIL.test(email.trim())) { err(form, '× Inserisci una email valida'); return; }
       const kind = form.dataset.form;
-      if (kind === 'final') {
-        const role = form.querySelector('select[name="ruolo"]');
-        if (role && !role.value) { err(form, '× Seleziona un ruolo'); return; }
-      }
       const btn = form.querySelector('button[type="submit"], button:not([type])');
       const lbl = btn ? btn.querySelector('.lbl') : null;
       const labelText = lbl ? lbl.textContent : '';
@@ -178,7 +162,7 @@
         .then((r) => r.json().then((d) => ({ ok: r.ok, d })).catch(() => ({ ok: r.ok, d: {} })))
         .then(({ ok, d }) => {
           if (!ok) { restore(); err(form, '× ' + ((d && d.error) || 'Errore, riprova')); return; }
-          done(form, kind, email.trim());
+          done(form, email.trim());
         })
         .catch(() => { restore(); err(form, '× Errore di rete, riprova'); });
     });
@@ -196,24 +180,10 @@
     });
   });
 
-  function done(form, kind, email) {
+  function done(form, email) {
     const safe = email.replace(/[<>]/g, '');
-    if (kind === 'final') {
-      const role = form.querySelector('select[name="ruolo"]').value;
-      const label = { brokerage: 'BROKERAGE', caricatore: 'CARICATORE', vettore: 'VETTORE', altro: 'ALTRO' }[role] || 'LISTA';
-      const card = document.createElement('div');
-      card.className = 'final-success';
-      card.innerHTML = `
-        <span class="ck">✓</span>
-        <span class="pill">Lista · ${label}</span>
-        <h3>Ci sei. Ora tocca a noi.</h3>
-        <p>Abbiamo registrato <b>${safe}</b> per la beta privata. Ti scriviamo entro 48 ore per una demo sui tuoi carichi reali.</p>
-        <p style="opacity:.85;font-family:var(--mono);font-size:11px;text-transform:uppercase;">Niente spam. Promesso.</p>`;
-      form.replaceWith(card);
-    } else {
-      const field = form.querySelector('.field') || form;
-      field.classList.add('ok');
-      field.innerHTML = `<span class="okmsg">✓ Sei nella lista. Email: ${safe}</span>`;
-    }
+    const field = form.querySelector('.field') || form;
+    field.classList.add('ok');
+    field.innerHTML = `<span class="okmsg">✓ Sei nella lista. Email: ${safe}</span>`;
   }
 })();
