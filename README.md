@@ -117,7 +117,7 @@ sceglie un accento tra i 4 del design ad ogni caricamento e lo setta come
 | Acid lime | `#C6F000` | scuro `#0B0B0B` |
 | Electric cobalt | `#2D43FF` | chiaro `#F4F1E7` |
 
-Favicon, `logo.png` e l'immagine social (`og-image-v4.png`, sorgente
+Favicon, `logo.png` e l'immagine social (`og-image-v5.png`, sorgente
 `og-image.svg` renderizzata con Chrome headless) sono **statici** → usano
 l'accento fisso **vermillion** (non possono cambiare per-view).
 

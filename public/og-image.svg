@@ -28,9 +28,9 @@
   </g>
 
   <!-- giant headline (wdth 125, sized to fit 1200) -->
-  <text class="h" x="62" y="268" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;">IL SISTEMA OPERATIVO</text>
-  <text x="62" y="345" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;"><tspan class="h">DEL </tspan><tspan class="hacc">FREIGHT</tspan><tspan class="h"> BROKERAGE</tspan></text>
-  <text class="h" x="62" y="422" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;">ITALIANO.</text>
+  <text x="62" y="268" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;"><tspan class="h">IL PREZZO </tspan><tspan class="hacc">GIUSTO</tspan><tspan class="h">,</tspan></text>
+  <text class="h" x="62" y="345" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;">PRIMA CHE SQUILLI</text>
+  <text class="h" x="62" y="422" font-size="70" font-stretch="125%" letter-spacing="-2.2" style="font-variation-settings:'wdth' 125;">IL TELEFONO.</text>
 
   <text class="monoacc" x="64" y="572" font-size="15">FREIGHTER.ONLINE</text>
   <text class="mono" x="64" y="596" font-size="13" style="letter-spacing:1px;">TMS · PREZZI SULLO STORICO · RETE VETTORI · BETA PRIVATA</text>
